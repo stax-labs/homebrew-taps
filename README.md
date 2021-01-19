@@ -4,4 +4,4 @@ Homebrew taps publised by stax.
 
 # License
 
-Copyright Stax Pty. Ltd.
+Copyright Stax-WMS Pty Ltd.
