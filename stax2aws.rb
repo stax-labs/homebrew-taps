@@ -2,13 +2,13 @@ require 'formula'
 
 class Stax2aws < Formula
   homepage 'https://github.com/stax-labs/stax2aws-releases'
-  version '1.3.0'
+  version '1.3.1'
   if OS.mac?
     url "https://github.com/stax-labs/stax2aws-releases/releases/download/v#{version}/stax2aws_#{version}_macOS_amd64.tar.gz"
-    sha256 'fc540f888bc12b9f3731acdd9084cbd5f72e80303f758a0b72b8c1aa6a35b497'
+    sha256 '936bce40a77b698ae064b5ddaf2fe7bb3269ef016ef1ad814fb6e2eab79a350d'
   elsif OS.linux?
     url "https://github.com/stax-labs/stax2aws-releases/releases/download/v#{version}/stax2aws_#{version}_linux_amd64.tar.gz"
-    sha256 '814cb0587b09ce8d44cbf69cee1c44cdcf26aeac0294bc490d9222ec3e224745'
+    sha256 '514c55967de83c83af0257b65bd4c506a3097f38a8528b569afde7ffdf27fdcd'
   end
 
   depends_on :arch => :x86_64
