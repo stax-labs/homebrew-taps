@@ -32,9 +32,14 @@ class Stax2aws < Formula
 
   def install
     bin.install 'stax2aws'
-    bash_completion.install "completions/stax2aws.bash" => "stax2aws"
-    zsh_completion.install "completions/stax2aws.zsh" => "_stax2aws"
-    fish_completion.install "completions/stax2aws.fish"
+
+    output = Utils.popen_read("#{bin}/stax2aws completion bash")
+    (bash_completion/"stax2aws").write output
+
+    output = Utils.popen_read("#{bin}/stax2aws completion zsh")
+    (zsh_completion/"_stax2aws").write output
+
+    prefix.install_metafiles
   end
 
   test do
