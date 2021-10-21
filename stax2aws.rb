@@ -5,28 +5,28 @@
 class Stax2aws < Formula
   desc "Official CLI for logging into Stax-managed AWS accounts."
   homepage "https://github.com/stax-labs/stax2aws-releases"
-  version "1.4.0"
+  version "1.4.1"
   bottle :unneeded
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.0/stax2aws_1.4.0_macOS_arm64.tar.gz"
-      sha256 "dfb2cefab9599076534796ad8cf7809ebe11f831e8c857d1cf58ed89082d2cf8"
-    end
     if Hardware::CPU.intel?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.0/stax2aws_1.4.0_macOS_amd64.tar.gz"
-      sha256 "3408dc2bed8f2d13d09388da505909f6da026187c1bf50529340e9d974f5e38d"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.1/stax2aws_1.4.1_macOS_amd64.tar.gz"
+      sha256 "69d43d0bdeb5e532e60c6e47b5b32064882dfe1e05829119545d44e4f87704ac"
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.1/stax2aws_1.4.1_macOS_arm64.tar.gz"
+      sha256 "98f1d1b01117db4ca33ef9d5037d34325936d017f40a3d1249b403d494953b60"
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.0/stax2aws_1.4.0_linux_amd64.tar.gz"
-      sha256 "66e48eafbd1c2be1bc71b162e8983f3bbe370061f65998a780cffc4d89effa4b"
-    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.0/stax2aws_1.4.0_linux_arm64.tar.gz"
-      sha256 "5a03abbeae162db414017cfe3e388d28c941fd55b16df4dfcd3b5cac995f1a99"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.1/stax2aws_1.4.1_linux_arm64.tar.gz"
+      sha256 "f09b80bfb63e106203401acfeb3ec463a66b26ecc9c4a1f860150a15f3ef09af"
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.1/stax2aws_1.4.1_linux_amd64.tar.gz"
+      sha256 "f7700e6bfdab3c1f985710b15ef4212e2448d7fd0105509213f5e9822a4207a2"
     end
   end
 
