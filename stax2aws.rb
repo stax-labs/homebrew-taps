@@ -6,7 +6,6 @@ class Stax2aws < Formula
   desc "Official CLI for logging into Stax-managed AWS accounts."
   homepage "https://github.com/stax-labs/stax2aws-releases"
   version "1.4.1"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
