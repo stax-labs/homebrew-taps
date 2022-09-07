@@ -5,40 +5,56 @@
 class Stax2aws < Formula
   desc "Official CLI for logging into Stax-managed AWS accounts."
   homepage "https://github.com/stax-labs/stax2aws-releases"
-  version "1.4.1"
+  version "1.4.2"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.1/stax2aws_1.4.1_macOS_amd64.tar.gz"
-      sha256 "69d43d0bdeb5e532e60c6e47b5b32064882dfe1e05829119545d44e4f87704ac"
-    end
     if Hardware::CPU.arm?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.1/stax2aws_1.4.1_macOS_arm64.tar.gz"
-      sha256 "98f1d1b01117db4ca33ef9d5037d34325936d017f40a3d1249b403d494953b60"
+      url "https://github.com/stax-labs/stax2aws/releases/download/v1.4.2/stax2aws_1.4.2_macOS_arm64.tar.gz"
+      sha256 "c27d42e5cfedac06e6546634eba09ece80649f7e65221c6226a07364e95da80a"
+
+      def install
+        bin.install 'stax2aws'
+        bash_completion.install "completions/stax2aws.bash" => "stax2aws"
+        zsh_completion.install "completions/stax2aws.zsh" => "_stax2aws"
+        fish_completion.install "completions/stax2aws.fish"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/stax-labs/stax2aws/releases/download/v1.4.2/stax2aws_1.4.2_macOS_amd64.tar.gz"
+      sha256 "1328e4fad61718f5058d84a9a2dc4ea5ea792cb7de5bab5a4585519fcfafe410"
+
+      def install
+        bin.install 'stax2aws'
+        bash_completion.install "completions/stax2aws.bash" => "stax2aws"
+        zsh_completion.install "completions/stax2aws.zsh" => "_stax2aws"
+        fish_completion.install "completions/stax2aws.fish"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.1/stax2aws_1.4.1_linux_arm64.tar.gz"
-      sha256 "f09b80bfb63e106203401acfeb3ec463a66b26ecc9c4a1f860150a15f3ef09af"
-    end
     if Hardware::CPU.intel?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.1/stax2aws_1.4.1_linux_amd64.tar.gz"
-      sha256 "f7700e6bfdab3c1f985710b15ef4212e2448d7fd0105509213f5e9822a4207a2"
+      url "https://github.com/stax-labs/stax2aws/releases/download/v1.4.2/stax2aws_1.4.2_linux_amd64.tar.gz"
+      sha256 "f876a1e36cf72cfbb5d9ff0bd9bfc70d2668ab164783df79db897a4d07941d55"
+
+      def install
+        bin.install 'stax2aws'
+        bash_completion.install "completions/stax2aws.bash" => "stax2aws"
+        zsh_completion.install "completions/stax2aws.zsh" => "_stax2aws"
+        fish_completion.install "completions/stax2aws.fish"
+      end
     end
-  end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/stax-labs/stax2aws/releases/download/v1.4.2/stax2aws_1.4.2_linux_arm64.tar.gz"
+      sha256 "8a96b05e51da7e45a3d123ca1d79b514b8e55e4ca021c2a15c5a0b665f39b5c2"
 
-  def install
-    bin.install 'stax2aws'
-
-    output = Utils.popen_read("#{bin}/stax2aws completion bash")
-    (bash_completion/"stax2aws").write output
-
-    output = Utils.popen_read("#{bin}/stax2aws completion zsh")
-    (zsh_completion/"_stax2aws").write output
-
-    prefix.install_metafiles
+      def install
+        bin.install 'stax2aws'
+        bash_completion.install "completions/stax2aws.bash" => "stax2aws"
+        zsh_completion.install "completions/stax2aws.zsh" => "_stax2aws"
+        fish_completion.install "completions/stax2aws.fish"
+      end
+    end
   end
 
   test do
