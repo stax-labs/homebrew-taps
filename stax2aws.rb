@@ -9,22 +9,22 @@ class Stax2aws < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/stax-labs/stax2aws/releases/download/v1.4.3/stax2aws_1.4.3_macOS_arm64.tar.gz"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.3/stax2aws_1.4.3_macOS_arm64.tar.gz"
       sha256 "b34dd069d0a13d782778dc496cdb0442a4a03bd6789b41d7033f28675b4233f9"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/stax-labs/stax2aws/releases/download/v1.4.3/stax2aws_1.4.3_macOS_amd64.tar.gz"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.3/stax2aws_1.4.3_macOS_amd64.tar.gz"
       sha256 "5274a4fb6cdd56fe6ed66b8925b4bc361c8503d970a226b25cdeb8eac8c2620a"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/stax-labs/stax2aws/releases/download/v1.4.3/stax2aws_1.4.3_linux_amd64.tar.gz"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.3/stax2aws_1.4.3_linux_amd64.tar.gz"
       sha256 "6fab0daf35ee9adbf2acdb47ab60ef9e16addd2a2bc8cd81b1a7005478531f22"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stax-labs/stax2aws/releases/download/v1.4.3/stax2aws_1.4.3_linux_arm64.tar.gz"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.3/stax2aws_1.4.3_linux_arm64.tar.gz"
       sha256 "fc219f1627e41ed46fe6bf76347d3701555917ba57491d51dcaa8fb5e0d8745f"
     end
   end
