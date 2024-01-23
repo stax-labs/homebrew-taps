@@ -5,39 +5,38 @@
 class Stax2aws < Formula
   desc "Official CLI for logging into Stax-managed AWS accounts."
   homepage "https://github.com/stax-labs/stax2aws-releases"
-  version "1.4.3"
+  version "1.5.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.3/stax2aws_1.4.3_macOS_arm64.tar.gz"
-      sha256 "b34dd069d0a13d782778dc496cdb0442a4a03bd6789b41d7033f28675b4233f9"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.5.0/stax2aws_1.5.0_macOS_arm64.zip"
+      sha256 "2cd780518f5fc33c10f9a8e5f4ce5ae3003e24333eb6a2f177303ae072eb6754"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.3/stax2aws_1.4.3_macOS_amd64.tar.gz"
-      sha256 "5274a4fb6cdd56fe6ed66b8925b4bc361c8503d970a226b25cdeb8eac8c2620a"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.5.0/stax2aws_1.5.0_macOS_amd64.zip"
+      sha256 "d4025fc5bf2205f51f983b5c7c3b4b12697a3ab620ef2091701cd10b68055ec3"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.3/stax2aws_1.4.3_linux_amd64.tar.gz"
-      sha256 "6fab0daf35ee9adbf2acdb47ab60ef9e16addd2a2bc8cd81b1a7005478531f22"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.5.0/stax2aws_1.5.0_linux_amd64.tar.gz"
+      sha256 "21c74d1b8fe836b5e0e166413e3ddca01da034b91ac77ce49c6773183a20867a"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.4.3/stax2aws_1.4.3_linux_arm64.tar.gz"
-      sha256 "fc219f1627e41ed46fe6bf76347d3701555917ba57491d51dcaa8fb5e0d8745f"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.5.0/stax2aws_1.5.0_linux_arm64.tar.gz"
+      sha256 "18136fd87e5dc5235fbca0be60990e66ff713043474186e32c761e53aa422624"
     end
   end
 
   def install
-    bin.install 'stax2aws'
-
+    bin.install "stax2aws"
     output = Utils.popen_read("#{bin}/stax2aws completion bash")
     (bash_completion/"stax2aws").write output
-
     output = Utils.popen_read("#{bin}/stax2aws completion zsh")
     (zsh_completion/"_stax2aws").write output
-
+    output = Utils.popen_read("#{bin}/stax2aws completion fish")
+    (fish_completion/"stax2aws.fish").write output
     prefix.install_metafiles
   end
 
