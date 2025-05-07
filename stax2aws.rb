@@ -5,27 +5,27 @@
 class Stax2aws < Formula
   desc "Official CLI for logging into Stax-managed AWS accounts."
   homepage "https://github.com/stax-labs/stax2aws-releases"
-  version "1.5.2"
+  version "1.5.3"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.5.2/stax2aws_1.5.2_macOS_arm64.zip"
-      sha256 "aa60c51657646d4db356c02aa2047e3cedc64246cc7a8fdb152a88b58ae9368c"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.5.3/stax2aws_1.5.3_macOS_arm64.zip"
+      sha256 "fc3da9e99dd14e79acf3423a012596f45886823b451286781c2d81b4c82c65cd"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.5.2/stax2aws_1.5.2_macOS_amd64.zip"
-      sha256 "727b92c1319e5d6b4018a379f66fe2fcd7293f6a52e8c7eaaca74cc6636f60e1"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.5.3/stax2aws_1.5.3_macOS_amd64.zip"
+      sha256 "9b00e4a71f7b350b419f5aa8cd24f6e45bbfd53175a2e7a0612ff2ec8cf4990a"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.5.2/stax2aws_1.5.2_linux_amd64.tar.gz"
-      sha256 "13d00f879f9d89c6cbcf2f63d7b8a47b02e9533de0516f05604ea6daa864f7a1"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.5.3/stax2aws_1.5.3_linux_amd64.tar.gz"
+      sha256 "f08d17b4ebd498cc541d027c607fcb7ce8f9aaca802315e60386d05feb002952"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.5.2/stax2aws_1.5.2_linux_arm64.tar.gz"
-      sha256 "cb12769d4ade89a6ed6c9c7644e07b54a458062fdb948e5622479b55ecab6f80"
+      url "https://github.com/stax-labs/stax2aws-releases/releases/download/v1.5.3/stax2aws_1.5.3_linux_arm64.tar.gz"
+      sha256 "e955d0a0e52d4fc530e11b7d34ec955053c6d85045981fac86931529c0678b18"
     end
   end
 
